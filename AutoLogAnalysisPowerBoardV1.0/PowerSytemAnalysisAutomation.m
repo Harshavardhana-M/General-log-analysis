@@ -1,0 +1,19 @@
+%% Import data from mat file
+clear;
+clc
+
+
+[bms_data_table, bms_error_table, bms_power_error_code_table, bms_data_array, bms_info_data_table] = bms_power_log_data_analysis('/media/rangeaero/EQP7000014/12271718');
+
+%[pixhawk_data_table, pixhawk_error_table, pixhawk_power_error_code_table, pixhawk_data_array, pixhawk_info_data_table, message_table] = pixhawk_power_log_data_analysis('/home/rangeaero/Downloads/Dec28th Flights/Alpha/RA5A1.221228.F5.mat');
+
+result_file_path = '/home/rangeaero/Desktop/POW.xls';
+writetable(bms_error_table, result_file_path, 'Sheet',  'bms_error_table');
+writetable(pixhawk_error_table, result_file_path, 'Sheet',  'pixhawk_error_table');
+writetable(bms_data_table, result_file_path, 'Sheet',  'bms_data_table');
+writetable(pixhawk_data_table, result_file_path, 'Sheet',  'pixhawk_data_table');
+writetable(bms_info_data_table, result_file_path, 'Sheet',  'bms_info_data_table');
+writetable(pixhawk_info_data_table, result_file_path, 'Sheet',  'pixhawk_data_table');
+writetable(bms_power_error_code_table, result_file_path, 'Sheet',  'bms_power_error_table');
+writetable(pixhawk_power_error_code_table, result_file_path, 'Sheet',  'pixhawk_power_error_table');
+writetable(message_table, result_file_path, 'Sheet',  'pixhawk_message_table');
